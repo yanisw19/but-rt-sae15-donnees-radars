@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Analyse des excès de vitesse</title>
+
+<!-- Import Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Import du CSS externe -->
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<h1>Analyse des excès de vitesse</h1>
+
+<h2>Moyenne des excès par plage horaire</h2>
+<canvas id="plages"></canvas>
+
+<h2>Top 10 des vitesses les plus élevées</h2>
+<table>
+<tr><th>Latitude</th><th>Longitude</th><th>Vitesse</th></tr>
+<tr><td>49.7</td><td>3.5</td><td>222.0</td></tr><tr><td>49.7</td><td>3.5</td><td>221.0</td></tr><tr><td>45.1</td><td>-0.8</td><td>213.0</td></tr><tr><td>48.3</td><td>-1.9</td><td>213.0</td></tr><tr><td>46.2</td><td>2.3</td><td>210.0</td></tr><tr><td>48.1</td><td>0.5</td><td>204.0</td></tr><tr><td>48.4</td><td>0.1</td><td>203.0</td></tr><tr><td>45.9</td><td>1.1</td><td>198.0</td></tr><tr><td>47.9</td><td>5.3</td><td>195.0</td></tr><tr><td>47.9</td><td>5.3</td><td>194.0</td></tr>
+</table>
+
+<h2>Excès par jour</h2>
+<canvas id="jours"></canvas>
+
+<h2>Moyenne d’excès par limite</h2>
+<canvas id="limites"></canvas>
+
+<script>
+// ==== Graphique 1 : Plages horaires ====
+new Chart(document.getElementById('plages'), {
+    type:'bar',
+    data:{
+        labels:['01h-04h', '05h-09h', '12h-16h', '17h-21h', '21h01-00h'],
+        datasets:[{
+            label:'Excès moyen (km/h)',
+            data:[7.24, 11.05, 9.91, 10.82, 7.95],
+            backgroundColor:'rgba(202,2,119,0.6)'
+        }]
+    }
+});
+
+// ==== Graphique 2 : Excès par jour (seulement 7 premiers) ====
+const jours_labels = ['01/01/2023', '02/01/2023', '03/01/2023', '04/01/2023', '05/01/2023', '06/01/2023', '07/01/2023', '08/01/2023', '09/01/2023', '10/01/2023', '11/01/2023', '12/01/2023', '13/01/2023', '14/01/2023', '15/01/2023', '16/01/2023', '17/01/2023', '18/01/2023', '19/01/2023', '20/01/2023', '21/01/2023', '22/01/2023', '23/01/2023'].slice(0,7);
+const jours_data   = [18761, 45517, 64365, 50048, 48754, 48681, 40577, 28021, 44208, 69890, 65379, 64197, 60181, 23984, 19668, 58767, 66768, 54554, 50217, 46525, 38287, 26630, 14596].slice(0,7);
+
+new Chart(document.getElementById('jours'), {
+    type:'pie',
+    data:{
+        labels: jours_labels,
+        datasets:[{
+            data: jours_data,
+            backgroundColor:[
+                'rgba(255, 99, 132, 0.7)',
+                'rgba(54, 162, 235, 0.7)',
+                'rgba(255, 206, 86, 0.7)',
+                'rgba(75, 192, 192, 0.7)',
+                'rgba(153, 102, 255, 0.7)',
+                'rgba(255, 159, 64, 0.7)',
+                'rgba(200, 200, 200, 0.7)'
+            ],
+            borderColor:'#000',
+            borderWidth:2
+        }]
+    },
+    options:{
+        plugins:{
+            legend:{position:'bottom', labels:{color:'#000000'}}
+        }
+    }
+});
+
+// ==== Graphique 3 : Moyenne par limite ====
+new Chart(document.getElementById('limites'), {
+    type:'line',
+    data:{
+        labels:[80.0, 90.0, 70.0, 110.0, 130.0],
+        datasets:[{
+            label:'Excès moyen (km/h)',
+            data:[11.38, 10.43, 2.73, 17.96, 13.22],
+            borderColor:'#e6e6e6',
+            fill:true
+        }]
+    }
+});
+</script>
+
+</body>
+<footer class="footer">
+    Site produit par <strong>SOUID Ylies</strong> & <strong>GROT Yanis</strong><br>
+    dans le cadre de la SAE15 — encadré par <strong>M. CATTA</strong>.
+</footer>
+
+</html>

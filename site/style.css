@@ -1,0 +1,130 @@
+/* ----------------- GLOBAL ----------------- */
+body {
+    background:#f7f3ee;
+    color:#4a4a4a;
+    font-family:"Segoe UI", Roboto, Arial, sans-serif;
+    margin:0;
+    padding:0;
+    text-align:center;
+    letter-spacing:0.3px;
+}
+
+/* ----------------- HEADER ----------------- */
+header {
+    padding:25px;
+    background:#fffaf4;
+    border-bottom:1px solid #e6dfd5;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+header h1 {
+    font-size:2em;
+    font-weight:700;
+    color:#8b6f47; /* brun clair élégant */
+}
+
+/* ----------------- SECTION TITLES ----------------- */
+h2 {
+    font-size:1.35em;
+    margin-top:40px;
+    margin-bottom:10px;
+    font-weight:600;
+    color:#7a6040;
+}
+
+/* ----------------- CARD CONTAINERS ----------------- */
+.card {
+    background:#fffdf9;
+    width:70%;
+    margin:25px auto;
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.06);
+    border:1px solid #e8ded2;
+}
+
+/* ----------------- GRAPHS ----------------- */
+canvas {
+    margin:25px auto;
+    display:block;
+    background:#fefbf7;
+    border-radius:12px;
+    padding:10px;
+    width:60% !important;
+    max-width:700px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.07);
+    border:1px solid #ece2d7;
+}
+
+/* Pie chart specific size */
+#jours {
+    width:40% !important;
+    max-width:380px;
+    
+}
+
+/* Hover */
+canvas:hover {
+    transform:scale(1.012);
+    transition:0.25s;
+}
+
+/* ----------------- TABLEAU ----------------- */
+table {
+    margin:25px auto;
+    width:55%;
+    border-collapse:collapse;
+    background:#fffefc;
+    border-radius:10px;
+    overflow:hidden;
+    font-size:0.9em;
+    box-shadow:0 2px 12px rgba(0,0,0,0.05);
+    border:1px solid #e8ded3;
+}
+
+th {
+    background:#d8c3a5; /* beige foncé */
+    color:#fff;
+    padding:10px;
+    font-weight:600;
+}
+
+td {
+    padding:10px;
+    border-bottom:1px solid #efe6db;
+}
+
+tr:nth-child(even) {
+    background:#f7f1ea;
+}
+
+tr:hover {
+    background:#f0e8dd;
+    transition:0.2s;
+}
+
+/* ----------------- SCROLLBAR ----------------- */
+::-webkit-scrollbar {
+    width:8px;
+}
+::-webkit-scrollbar-thumb {
+    background:#cbb8a2;
+    border-radius:10px;
+}
+::-webkit-scrollbar-track {
+    background:#f2e9df;
+}
+
+.footer {
+    margin-top: 60px;
+    padding: 18px 10px;
+    background: rgba(240, 230, 210, 0.65);  /* beige crème léger */
+    color: #4a4a4a;
+    font-size: 14px;
+    text-align: center;
+    border-top: 1px solid #d6c8b8;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+    backdrop-filter: blur(4px);
+}
+
+
